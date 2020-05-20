@@ -1,0 +1,28 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+.app {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+}
+
+@font-face {
+   font-family: 'DMMono-Light';
+   src: url('assets/fonts/DM_Mono/DMMono-Light.ttf') format('truetype'),
+      local('DMMono-Light');
+}
+
+@font-face {
+   font-family: 'DMMono-Regular';
+   src: url('assets/fonts/DM_Mono/DMMono-Regular.ttf') format('truetype'),
+      local('DMMono-Regular');
+}
+
+@font-face {
+   font-family: 'DMMono-Medium';
+   src: url('assets/fonts/DM_Mono/DMMono-Medium.ttf') format('truetype'),
+      local('DMMono-Medium');
+}
