@@ -1,4 +1,6 @@
 import React from 'react'
+
+import { Link } from 'react-router-dom'
 import '../../styles/Landing.scss'
 
 export const Landing = () => {
@@ -12,12 +14,12 @@ export const Landing = () => {
                   from other developers
                </p>
                <div className='landing-buttons'>
-                  <a className='landing-buttons_signup' href='index.html'>
+                  <Link className='landing-buttons_signup' to='/signup'>
                      Sign Up
-                  </a>
-                  <a className='landing-buttons_login' href='index.html'>
+                  </Link>
+                  <Link className='landing-buttons_login' to='/login'>
                      Login
-                  </a>
+                  </Link>
                </div>
             </div>
          </div>
