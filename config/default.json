@@ -1,6 +1,6 @@
 {
-   "mongoURI": "mongodb+srv://terhoha:vladterhoha678@cluster0-ajggn.mongodb.net/test?retryWrites=true&w=majority",
-   "jwtSecret": "mySecretTokent",
-   "githubClientId": "Iv1.8da3d79b8d7c45fd",
-   "githubSecret": "acfdc7ffe88c52dfaec45603e0c3ce0d59f11856"
+  "mongoURI": "mongodb+srv://terhoha:vladterhoha678@cluster0-ajggn.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mySecretTokent",
+  "githubClientId": "Iv1.8da3d79b8d7c45fd",
+  "githubSecret": "acfdc7ffe88c52dfaec45603e0c3ce0d59f11856"
 }
