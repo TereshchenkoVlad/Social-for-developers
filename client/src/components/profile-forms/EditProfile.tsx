@@ -89,54 +89,82 @@ const EditProfile: FC<Props> = ({
     <div className="create-profile">
       <form onSubmit={onSubmit}>
         <h1 className="create-profile-title">Edit Profile</h1>
-        <select name="status" value={status} onChange={onChange}>
-          <option value="0">* Select professional status:</option>
-          <option value="Developer">Developer</option>
-          <option value="Junion Developer">Junion Developer</option>
-          <option value="Middle Developer">Middle Developer</option>
-          <option value="Senior Developer">Senior Developer</option>
-        </select>
-        <input
-          value={company}
-          name="company"
-          onChange={onChange}
-          type="text"
-          placeholder="Company"
-        />
-        <input
-          value={website}
-          name="website"
-          onChange={onChange}
-          type="text"
-          placeholder="Website"
-        />
-        <input
-          value={location}
-          name="location"
-          onChange={onChange}
-          type="text"
-          placeholder="Location"
-        />
-        <input
-          value={skills}
-          name="skills"
-          onChange={onChange}
-          type="text"
-          placeholder="Skills"
-        />
-        <input
-          value={githubusername}
-          name="githubusername"
-          onChange={onChange}
-          type="text"
-          placeholder="Github username"
-        />
-        <textarea
-          value={bio}
-          name="bio"
-          onChange={onChange}
-          placeholder="A short bio"
-        />
+        <div className="create-profile-input_block">
+          <small>Status:</small>
+          <select name="status" value={status} onChange={onChange}>
+            <option value="0">* Select professional status:</option>
+            <option value="Developer">Developer</option>
+            <option value="Junion Developer">Junion Developer</option>
+            <option value="Middle Developer">Middle Developer</option>
+            <option value="Senior Developer">Senior Developer</option>
+          </select>
+        </div>
+
+        <div className="create-profile-input_block">
+          <small>Company:</small>
+          <input
+            value={company}
+            name="company"
+            onChange={onChange}
+            type="text"
+            placeholder="Company"
+          />
+        </div>
+
+        <div className="create-profile-input_block">
+          <small>Website:</small>
+          <input
+            value={website}
+            name="website"
+            onChange={onChange}
+            type="text"
+            placeholder="Website"
+          />
+        </div>
+
+        <div className="create-profile-input_block">
+          <small>Location:</small>
+          <input
+            value={location}
+            name="location"
+            onChange={onChange}
+            type="text"
+            placeholder="Location"
+          />
+        </div>
+
+        <div className="create-profile-input_block">
+          <small>Skills:</small>
+          <input
+            value={skills}
+            name="skills"
+            onChange={onChange}
+            type="text"
+            placeholder="Skills"
+          />
+        </div>
+
+        <div className="create-profile-input_block">
+          <small>Github:</small>
+          <input
+            value={githubusername}
+            name="githubusername"
+            onChange={onChange}
+            type="text"
+            placeholder="Github username"
+          />
+        </div>
+
+        <div className="create-profile-input_block">
+          <small>BIO:</small>
+          <textarea
+            value={bio}
+            name="bio"
+            onChange={onChange}
+            placeholder="A short bio"
+          />
+        </div>
+
         <p
           className="create-profile-social"
           onClick={() => showSocial(!socialInfo)}
@@ -145,41 +173,60 @@ const EditProfile: FC<Props> = ({
         </p>
         {socialInfo && (
           <>
-            <input
-              value={youtube}
-              name="youtube"
-              onChange={onChange}
-              type="text"
-              placeholder="YouTube"
-            />
-            <input
-              value={facebook}
-              name="facebook"
-              onChange={onChange}
-              type="text"
-              placeholder="Facebook"
-            />
-            <input
-              value={linkedin}
-              name="linkedin"
-              onChange={onChange}
-              type="text"
-              placeholder="Linkedin"
-            />
-            <input
-              value={instagram}
-              name="instagram"
-              onChange={onChange}
-              type="text"
-              placeholder="Instagram"
-            />
-            <input
-              value={twitter}
-              name="twitter"
-              onChange={onChange}
-              type="text"
-              placeholder="Twitter"
-            />
+            <div className="create-profile-input_block">
+              <small>YouTube:</small>
+              <input
+                value={youtube}
+                name="youtube"
+                onChange={onChange}
+                type="text"
+                placeholder="YouTube"
+              />
+            </div>
+
+            <div className="create-profile-input_block">
+              <small>Facebook:</small>
+              <input
+                value={facebook}
+                name="facebook"
+                onChange={onChange}
+                type="text"
+                placeholder="Facebook"
+              />
+            </div>
+
+            <div className="create-profile-input_block">
+              <small>Linkedin:</small>
+              <input
+                value={linkedin}
+                name="linkedin"
+                onChange={onChange}
+                type="text"
+                placeholder="Linkedin"
+              />
+            </div>
+
+            <div className="create-profile-input_block">
+              <small>Instagram:</small>
+              <input
+                value={instagram}
+                name="instagram"
+                onChange={onChange}
+                type="text"
+                placeholder="Instagram"
+              />
+            </div>
+
+            <div className="create-profile-input_block">
+              <small>Twitter:</small>
+              <input
+                value={twitter}
+                name="twitter"
+                onChange={onChange}
+                type="text"
+                placeholder="Twitter"
+              />
+            </div>
           </>
         )}
 

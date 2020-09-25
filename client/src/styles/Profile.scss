@@ -16,6 +16,18 @@
     font-size: 16px;
   }
 
+  &-input_block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    small {
+      margin-bottom: 5px;
+      color: #0b4291;
+      font-family: "DMMono-Regular";
+      font-size: 14px;
+    }
+  }
+
   form {
     padding: 40px;
     display: flex;
@@ -35,7 +47,6 @@
       outline: none;
       border: 1px solid rgba(25, 32, 57, 0.1);
       color: #192039;
-      margin-bottom: 20px;
       &::placeholder {
         color: #192039;
         opacity: 0.4;
