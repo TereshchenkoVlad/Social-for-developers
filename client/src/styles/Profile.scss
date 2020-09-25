@@ -1,0 +1,106 @@
+.create-profile {
+  width: 100%;
+  background-color: white;
+  min-height: 94vh;
+
+  &-title {
+    color: #0d4a91;
+    font-family: "DMMono-Medium";
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+
+  &-subtitle {
+    color: #0d4a91;
+    font-family: "DMMono-Regular";
+    font-size: 16px;
+  }
+
+  form {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+
+    input,
+    select,
+    textarea {
+      -webkit-appearance: none;
+      border-radius: 2px;
+      padding: 0 10px;
+      height: 40px;
+      background-color: #f9fafb;
+      font-family: "DMMono-Light";
+      font-size: 15px;
+      border: none;
+      outline: none;
+      border: 1px solid rgba(25, 32, 57, 0.1);
+      color: #192039;
+      margin-bottom: 20px;
+      &::placeholder {
+        color: #192039;
+        opacity: 0.4;
+        font-size: 14px;
+      }
+      &:focus {
+        border: 1px solid #0b4291;
+      }
+    }
+    textarea {
+      min-width: 20vw;
+      max-width: calc(100vw - 102px);
+      min-height: 60px;
+      max-height: 300px;
+      padding-top: 10px;
+    }
+  }
+
+  &-social {
+    width: 202px;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "DMMono-Regular";
+    background-color: #0d4a91;
+    margin-bottom: 20px;
+    transition: all 0.35s;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &-button-block {
+    display: flex;
+  }
+  &-submit {
+    width: 202px;
+    color: white;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-family: "DMMono-Regular";
+    background-color: #0d914f;
+    transition: all 0.35s;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &-back {
+    width: 202px;
+    color: white;
+    padding: 15px 30px;
+    font-size: 14px;
+    font-family: "DMMono-Regular";
+    background-color: #a3a3a3;
+    transition: all 0.35s;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

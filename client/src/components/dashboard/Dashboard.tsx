@@ -12,6 +12,10 @@ import { Profile } from "../../types/Profile";
 import { Loader } from "../layout/Loader";
 import { Link } from "react-router-dom";
 
+import "../../styles/Dashboard.scss";
+import userIcon from "../../assets/images/user.png";
+import DashboardActions from "./DashboardActions";
+
 export type DashboardProps = LinkStateToProps & LinkDispatchToProps & {};
 
 const Dashboard: FC<DashboardProps> = ({
@@ -28,17 +32,27 @@ const Dashboard: FC<DashboardProps> = ({
   }
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome {user && user.name}</p>
-      {profile === null ? (
-        <React.Fragment>has not</React.Fragment>
-      ) : (
-        <React.Fragment>
-          <p>You have not yet setup a profile, please add some info</p>
-          <Link to="/create-profile">Create Profile</Link>
-        </React.Fragment>
-      )}
+    <div style={{ width: "100%" }}>
+      <div className="dash">
+        <h1 className="dash-title">Dashboard</h1>
+        <div className="dash-welcome">
+          <img src={userIcon} alt="user" />
+          <p>Welcome {user && user.name}</p>
+        </div>
+
+        {profile !== null ? (
+          <DashboardActions />
+        ) : (
+          <>
+            <p className="dash-subtitle">
+              You have not yet setup a profile, please add some info:
+            </p>
+            <Link to="/create-profile" className="dash-create_button">
+              Create Profile
+            </Link>
+          </>
+        )}
+      </div>
     </div>
   );
 };
