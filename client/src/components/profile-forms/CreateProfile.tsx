@@ -1,11 +1,13 @@
 import React, { FC, useState } from "react";
 import { connect } from "react-redux";
-import { withRouter, Link, RouteComponentProps } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import { History } from "history";
 import { bindActionCreators, Dispatch } from "redux";
 import { ThunkDispatch } from "redux-thunk";
 import { createProfile } from "../../redux/actions/profile";
 import { AppActions } from "../../types/actions/app.actions";
+
+import "../../styles/Forms.scss";
 
 export interface CreateProfileFormData {
   status: string;
@@ -69,10 +71,10 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
   };
 
   return (
-    <div className="create-profile">
+    <div className="profile">
       <form onSubmit={onSubmit}>
-        <h1 className="create-profile-title">Create Profile</h1>
-        <div className="create-profile-input_block">
+        <h1 className="profile-title">Create Profile</h1>
+        <div className="profile-input_block">
           <small>Status:</small>
           <select name="status" value={status} onChange={onChange}>
             <option value="0">* Select professional status:</option>
@@ -83,7 +85,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
           </select>
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Company:</small>
           <input
             value={company}
@@ -94,7 +96,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Website:</small>
           <input
             value={website}
@@ -105,7 +107,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Location:</small>
           <input
             value={location}
@@ -116,7 +118,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Skills:</small>
           <input
             value={skills}
@@ -127,7 +129,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Github:</small>
           <input
             value={githubusername}
@@ -138,7 +140,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>BIO:</small>
           <textarea
             value={bio}
@@ -148,15 +150,12 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
           />
         </div>
 
-        <p
-          className="create-profile-social"
-          onClick={() => showSocial(!socialInfo)}
-        >
+        <p className="profile-social" onClick={() => showSocial(!socialInfo)}>
           Add Social network links
         </p>
         {socialInfo && (
           <>
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>YouTube:</small>
               <input
                 value={youtube}
@@ -167,7 +166,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
               />
             </div>
 
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>Facebook:</small>
               <input
                 value={facebook}
@@ -178,7 +177,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
               />
             </div>
 
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>Linkedin:</small>
               <input
                 value={linkedin}
@@ -189,7 +188,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
               />
             </div>
 
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>Instagram:</small>
               <input
                 value={instagram}
@@ -200,7 +199,7 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
               />
             </div>
 
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>Twitter:</small>
               <input
                 value={twitter}
@@ -213,12 +212,12 @@ const CreateProfile: FC<CreateProfileProps> = ({ createProfile, history }) => {
           </>
         )}
 
-        <div className="create-profile-button-block">
-          <button className="create-profile-submit" type="submit">
+        <div className="profile-button-block">
+          <button className="profile-submit" type="submit">
             Submit
           </button>
           <button
-            className="create-profile-back"
+            className="profile-back"
             type="button"
             onClick={history.goBack}
           >

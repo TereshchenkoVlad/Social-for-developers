@@ -195,7 +195,7 @@ router.put(
       company,
       location,
       from,
-      to,
+      to: current ? null : to,
       current,
       description,
     };
@@ -273,7 +273,7 @@ router.put(
       degree,
       fieldofstudy,
       from,
-      to,
+      to: current ? null : to,
       current,
       description,
     };

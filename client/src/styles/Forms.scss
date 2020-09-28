@@ -1,4 +1,4 @@
-.create-profile {
+.profile {
   width: 100%;
   background-color: white;
   min-height: 94vh;
@@ -28,12 +28,30 @@
     }
   }
 
+  &-checkbox_block {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-end;
+    small {
+      color: #0b4291;
+      font-family: "DMMono-Regular";
+      font-size: 14px;
+      margin-right: 7px;
+    }
+  }
+
+  &-checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
   form {
     padding: 40px;
     display: flex;
     flex-direction: column;
 
-    input,
+    input[type="text"],
+    input[type="date"],
     select,
     textarea {
       -webkit-appearance: none;

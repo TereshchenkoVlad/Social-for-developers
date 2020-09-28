@@ -12,6 +12,7 @@ const initialState: Profile = {
 export default (state = initialState, action: AppActions): Profile => {
   switch (action.type) {
     case "GET_PROFILE":
+    case "UPDATE_PROFILE":
       return {
         ...state,
         profile: action.profile,

@@ -11,8 +11,6 @@ import { AppState } from "../../redux/configureStore";
 
 import { CreateProfileFormData } from "./CreateProfile";
 
-import "../../styles/Profile.scss";
-
 export type Props = LinkDispatchToProps &
   LinkStateProps &
   RouteComponentProps & {};
@@ -70,7 +68,7 @@ const EditProfile: FC<Props> = ({
       instagram: loading || !profile.social ? "" : profile.social.instagram,
       twitter: loading || !profile.social ? "" : profile.social.twitter,
     });
-  }, [loading]);
+  }, [loading, getProfile, profile]);
 
   const onChange = (
     event: React.ChangeEvent<
@@ -86,10 +84,10 @@ const EditProfile: FC<Props> = ({
   };
 
   return (
-    <div className="create-profile">
+    <div className="profile">
       <form onSubmit={onSubmit}>
-        <h1 className="create-profile-title">Edit Profile</h1>
-        <div className="create-profile-input_block">
+        <h1 className="profile-title">Edit Profile</h1>
+        <div className="profile-input_block">
           <small>Status:</small>
           <select name="status" value={status} onChange={onChange}>
             <option value="0">* Select professional status:</option>
@@ -100,7 +98,7 @@ const EditProfile: FC<Props> = ({
           </select>
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Company:</small>
           <input
             value={company}
@@ -111,7 +109,7 @@ const EditProfile: FC<Props> = ({
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Website:</small>
           <input
             value={website}
@@ -122,7 +120,7 @@ const EditProfile: FC<Props> = ({
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Location:</small>
           <input
             value={location}
@@ -133,7 +131,7 @@ const EditProfile: FC<Props> = ({
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Skills:</small>
           <input
             value={skills}
@@ -144,7 +142,7 @@ const EditProfile: FC<Props> = ({
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>Github:</small>
           <input
             value={githubusername}
@@ -155,7 +153,7 @@ const EditProfile: FC<Props> = ({
           />
         </div>
 
-        <div className="create-profile-input_block">
+        <div className="profile-input_block">
           <small>BIO:</small>
           <textarea
             value={bio}
@@ -165,15 +163,12 @@ const EditProfile: FC<Props> = ({
           />
         </div>
 
-        <p
-          className="create-profile-social"
-          onClick={() => showSocial(!socialInfo)}
-        >
+        <p className="profile-social" onClick={() => showSocial(!socialInfo)}>
           Add Social network links
         </p>
         {socialInfo && (
           <>
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>YouTube:</small>
               <input
                 value={youtube}
@@ -184,7 +179,7 @@ const EditProfile: FC<Props> = ({
               />
             </div>
 
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>Facebook:</small>
               <input
                 value={facebook}
@@ -195,7 +190,7 @@ const EditProfile: FC<Props> = ({
               />
             </div>
 
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>Linkedin:</small>
               <input
                 value={linkedin}
@@ -206,7 +201,7 @@ const EditProfile: FC<Props> = ({
               />
             </div>
 
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>Instagram:</small>
               <input
                 value={instagram}
@@ -217,7 +212,7 @@ const EditProfile: FC<Props> = ({
               />
             </div>
 
-            <div className="create-profile-input_block">
+            <div className="profile-input_block">
               <small>Twitter:</small>
               <input
                 value={twitter}
@@ -230,12 +225,12 @@ const EditProfile: FC<Props> = ({
           </>
         )}
 
-        <div className="create-profile-button-block">
-          <button className="create-profile-submit" type="submit">
+        <div className="profile-button-block">
+          <button className="profile-submit" type="submit">
             Submit
           </button>
           <button
-            className="create-profile-back"
+            className="profile-back"
             type="button"
             onClick={history.goBack}
           >
