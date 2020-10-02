@@ -19,7 +19,7 @@ const Education: FC<Props> = ({ edu, deleteEducation }) => {
     return `${first} - ${second}`;
   };
 
-  const educatons = edu.map((item) => (
+  const educations = edu.map((item) => (
     <tr key={item._id}>
       <td>{item.school}</td>
       <td>{item.degree}</td>
@@ -42,7 +42,7 @@ const Education: FC<Props> = ({ edu, deleteEducation }) => {
             <th />
           </tr>
         </thead>
-        <tbody>{educatons}</tbody>
+        <tbody>{educations}</tbody>
       </table>
     </div>
   );

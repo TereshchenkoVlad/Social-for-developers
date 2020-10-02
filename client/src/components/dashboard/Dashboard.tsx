@@ -6,9 +6,10 @@ import { ThunkDispatch } from "redux-thunk";
 import { AppActions } from "../../types/actions/app.actions";
 import { bindActionCreators, Dispatch } from "redux";
 import {
+  getProfile,
+  deleteAccount,
   deleteEducation,
   deleteExperience,
-  getProfile,
 } from "../../redux/actions/profile";
 import { Auth } from "../../types/Auth";
 import { Profile } from "../../types/Profile";
@@ -19,6 +20,7 @@ import { Link } from "react-router-dom";
 import "../../styles/Dashboard.scss";
 import "../../styles/Table.scss";
 import userIcon from "../../assets/images/user.png";
+import deleteUserIcon from "../../assets/images/delete-user2.png";
 import DashboardActions from "./DashboardActions";
 import Experience from "./Experience";
 import Education from "./Education";
@@ -27,6 +29,7 @@ export type DashboardProps = LinkStateToProps & LinkDispatchToProps & {};
 
 const Dashboard: FC<DashboardProps> = ({
   getProfile,
+  deleteAccount,
   deleteEducation,
   deleteExperience,
   auth: { user },
@@ -54,6 +57,10 @@ const Dashboard: FC<DashboardProps> = ({
             <DashboardActions />
             <Experience exp={profile.experience} {...{ deleteExperience }} />
             <Education edu={profile.education} {...{ deleteEducation }} />
+            <div className="dash-delete_account" onClick={deleteAccount}>
+              <img src={deleteUserIcon} alt="delete user" />
+              Delete Account
+            </div>
           </>
         ) : (
           <>
@@ -83,6 +90,7 @@ interface LinkDispatchToProps {
   deleteEducation: (
     id: string
   ) => (dispatch: Dispatch<AppActions>) => Promise<void>;
+  deleteAccount: () => (dispatch: Dispatch<AppActions>) => Promise<void>;
 }
 
 const mapStateToProps = (state: AppState) => ({
@@ -94,6 +102,7 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AppActions>) => ({
   getProfile: bindActionCreators(getProfile, dispatch),
   deleteExperience: bindActionCreators(deleteExperience, dispatch),
   deleteEducation: bindActionCreators(deleteEducation, dispatch),
+  deleteAccount: bindActionCreators(deleteAccount, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

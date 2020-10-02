@@ -19,6 +19,12 @@ export default (state = initialState, action: AppActions): Profile => {
         profile: action.profile,
         loading: false,
       };
+    case "GET_ALL_PROFILES":
+      return {
+        ...state,
+        profiles: action.profiles,
+        loading: false,
+      };
     case "GET_PROFILE_FAIL":
       return {
         ...state,
@@ -31,6 +37,11 @@ export default (state = initialState, action: AppActions): Profile => {
         profile: null,
         repos: [],
         loading: false,
+      };
+    case "SET_LOADING":
+      return {
+        ...state,
+        loading: action.loading,
       };
     default:
       return state;

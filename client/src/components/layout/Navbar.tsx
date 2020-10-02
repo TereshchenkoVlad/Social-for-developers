@@ -12,6 +12,7 @@ import "../../styles/Navbar.scss";
 import developIcon from "../../assets/images/develop.png";
 import logoutIcon from "../../assets/images/logout.png";
 import dashIcon from "../../assets/images/dash.png";
+import profilesIcon from "../../assets/images/user-multiple.png";
 
 type NavbarProps = LinkStateProps & LinkDispatchProps & {};
 
@@ -31,6 +32,12 @@ const Navbar: FC<NavbarProps> = ({ isAuthenticated, logOut }) => {
   );
   const authLinks = (
     <ul className="navbar-list">
+      <li>
+        <Link to="/profiles">
+          <img src={profilesIcon} alt="dashboard" />
+          Profiles
+        </Link>
+      </li>
       <li>
         <Link to="/dashboard">
           <img src={dashIcon} alt="dashboard" />

@@ -77,13 +77,15 @@ const EditProfile: FC<Props> = ({
       twitter:
         loading || !profile || !profile.social ? "" : profile.social.twitter,
     });
-  }, [loading, getProfile, profile]);
+    // eslint-disable-next-line
+  }, [loading]);
 
   const onChange = (
     event: React.ChangeEvent<
       HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement
     >
   ) => {
+    console.log(event.target.value);
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
