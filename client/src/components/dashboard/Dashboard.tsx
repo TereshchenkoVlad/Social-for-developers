@@ -4,8 +4,12 @@ import { connect } from "react-redux";
 import { AppState } from "../../redux/configureStore";
 import { ThunkDispatch } from "redux-thunk";
 import { AppActions } from "../../types/actions/app.actions";
-import { bindActionCreators } from "redux";
-import { getProfile } from "../../redux/actions/profile";
+import { bindActionCreators, Dispatch } from "redux";
+import {
+  deleteEducation,
+  deleteExperience,
+  getProfile,
+} from "../../redux/actions/profile";
 import { Auth } from "../../types/Auth";
 import { Profile } from "../../types/Profile";
 
@@ -13,13 +17,18 @@ import { Loader } from "../layout/Loader";
 import { Link } from "react-router-dom";
 
 import "../../styles/Dashboard.scss";
+import "../../styles/Table.scss";
 import userIcon from "../../assets/images/user.png";
 import DashboardActions from "./DashboardActions";
+import Experience from "./Experience";
+import Education from "./Education";
 
 export type DashboardProps = LinkStateToProps & LinkDispatchToProps & {};
 
 const Dashboard: FC<DashboardProps> = ({
   getProfile,
+  deleteEducation,
+  deleteExperience,
   auth: { user },
   profile: { profile, loading },
 }) => {
@@ -41,7 +50,11 @@ const Dashboard: FC<DashboardProps> = ({
         </div>
 
         {profile !== null ? (
-          <DashboardActions />
+          <>
+            <DashboardActions />
+            <Experience exp={profile.experience} {...{ deleteExperience }} />
+            <Education edu={profile.education} {...{ deleteEducation }} />
+          </>
         ) : (
           <>
             <p className="dash-subtitle">
@@ -64,6 +77,12 @@ interface LinkStateToProps {
 
 interface LinkDispatchToProps {
   getProfile: () => void;
+  deleteExperience: (
+    id: string
+  ) => (dispatch: Dispatch<AppActions>) => Promise<void>;
+  deleteEducation: (
+    id: string
+  ) => (dispatch: Dispatch<AppActions>) => Promise<void>;
 }
 
 const mapStateToProps = (state: AppState) => ({
@@ -73,6 +92,8 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AppActions>) => ({
   getProfile: bindActionCreators(getProfile, dispatch),
+  deleteExperience: bindActionCreators(deleteExperience, dispatch),
+  deleteEducation: bindActionCreators(deleteEducation, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

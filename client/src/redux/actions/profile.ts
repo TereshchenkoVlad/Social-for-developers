@@ -113,3 +113,33 @@ export const addEducation = (
     });
   }
 };
+
+// Delete Experience
+export const deleteExperience = (id: string) => async (
+  dispatch: Dispatch<AppActions>
+) => {
+  try {
+    const res = await axios.delete(`api/profile/experience/${id}`);
+    dispatch({ type: "UPDATE_PROFILE", profile: res.data });
+  } catch (e) {
+    dispatch({
+      type: "GET_PROFILE_FAIL",
+      error: { msg: e.response.data.msg, status: e.response.status },
+    });
+  }
+};
+
+// Delete Education
+export const deleteEducation = (id: string) => async (
+  dispatch: Dispatch<AppActions>
+) => {
+  try {
+    const res = await axios.delete(`api/profile/education/${id}`);
+    dispatch({ type: "UPDATE_PROFILE", profile: res.data });
+  } catch (e) {
+    dispatch({
+      type: "GET_PROFILE_FAIL",
+      error: { msg: e.response.data.msg, status: e.response.status },
+    });
+  }
+};

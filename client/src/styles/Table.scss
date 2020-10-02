@@ -1,0 +1,42 @@
+.dash-table {
+  &_title {
+    font-family: "DMMono-Medium";
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  thead {
+    background-color: rgb(221, 221, 221);
+    font-family: "DMMono-Medium";
+    font-size: 14px;
+    th {
+      padding: 10px;
+      text-align: left;
+    }
+  }
+
+  tbody {
+    td {
+      padding: 10px;
+      font-size: 14px;
+      font-family: "DMMono-Regular";
+    }
+    button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: white;
+      transition: all 0.3s ease-in-out;
+      padding: 5px 10px;
+      font-family: "DMMono-Regular";
+      background-color: rgb(231, 37, 37);
+      &:hover {
+        opacity: 0.8;
+      }
+      &:active {
+        opacity: 1;
+      }
+    }
+  }
+}

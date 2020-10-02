@@ -54,19 +54,28 @@ const EditProfile: FC<Props> = ({
   useEffect(() => {
     getProfile();
     setFormData({
-      status: loading || !profile.status ? "" : profile.status,
-      company: loading || !profile.company ? "" : profile.company,
-      website: loading || !profile.website ? "" : profile.website,
-      location: loading || !profile.location ? "" : profile.location,
-      skills: loading || !profile.skills ? "" : profile.skills.join(","),
-      bio: loading || !profile.bio ? "" : profile.bio,
+      status: loading || !profile || !profile.status ? "" : profile.status,
+      company: loading || !profile || !profile.company ? "" : profile.company,
+      website: loading || !profile || !profile.website ? "" : profile.website,
+      location:
+        loading || !profile || !profile.location ? "" : profile.location,
+      skills:
+        loading || !profile || !profile.skills ? "" : profile.skills.join(","),
+      bio: loading || !profile || !profile.bio ? "" : profile.bio,
       githubusername:
-        loading || !profile.githubusername ? "" : profile.githubusername,
-      youtube: loading || !profile.social ? "" : profile.social.youtube,
-      facebook: loading || !profile.social ? "" : profile.social.facebook,
-      linkedin: loading || !profile.social ? "" : profile.social.linkedin,
-      instagram: loading || !profile.social ? "" : profile.social.instagram,
-      twitter: loading || !profile.social ? "" : profile.social.twitter,
+        loading || !profile || !profile.githubusername
+          ? ""
+          : profile.githubusername,
+      youtube:
+        loading || !profile || !profile.social ? "" : profile.social.youtube,
+      facebook:
+        loading || !profile || !profile.social ? "" : profile.social.facebook,
+      linkedin:
+        loading || !profile || !profile.social ? "" : profile.social.linkedin,
+      instagram:
+        loading || !profile || !profile.social ? "" : profile.social.instagram,
+      twitter:
+        loading || !profile || !profile.social ? "" : profile.social.twitter,
     });
   }, [loading, getProfile, profile]);
 

@@ -15,6 +15,7 @@ export default (state = initialState, action: AppActions): Profile => {
     case "UPDATE_PROFILE":
       return {
         ...state,
+        //@ts-ignore
         profile: action.profile,
         loading: false,
       };
