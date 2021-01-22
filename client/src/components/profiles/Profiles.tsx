@@ -1,13 +1,16 @@
 import React, { FC, useEffect } from "react";
-
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ThunkDispatch } from "redux-thunk";
+
 import { getAllProfiles } from "../../redux/actions/profile";
 import { AppState } from "../../redux/configureStore";
 import { AppActions } from "../../types/actions/app.actions";
 import { Profile as ProfileTypes } from "../../types/Profile";
 import { Loader } from "../layout/Loader";
+import ProfileItem from "./ProfileItem";
+import "../../styles/Profiles.scss";
+import connectIcon from "../../assets/images/connection.png";
 
 type Props = LinkStateToProps & LinkDispatchToProps;
 
@@ -24,11 +27,26 @@ const Profiles: FC<Props> = ({
   }
 
   return (
-    <div>
-      <h1>Developers</h1>
-      {profiles.length > 0
-        ? profiles.map((p) => <div key={p._id}>{p.location}</div>)
-        : "No Profiles Found!"}
+    <div className="profiles">
+      <div className="profiles-container">
+        <h1 className="profiles-title">Profiles</h1>
+        <div className="profiles-subtitle_container">
+          <img
+            src={connectIcon}
+            className="profiles-subtitle_icon"
+            alt="connect"
+          />
+          <h5 className="profiles-subtitle">
+            Browse and connect with developers
+          </h5>
+        </div>
+
+        {profiles.length > 0 ? (
+          profiles.map((p) => <ProfileItem key={p._id} profile={p} />)
+        ) : (
+          <h4 className="profiles-subtitle">"No Profiles Found!"</h4>
+        )}
+      </div>
     </div>
   );
 };

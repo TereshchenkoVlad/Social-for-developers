@@ -13,7 +13,11 @@ export interface Profile {
 
 export interface ProfileItem {
   _id: string;
-  user: string;
+  user: {
+    avatar: string;
+    name: string;
+    _id: string;
+  };
   company: string;
   website: string;
   location: string;

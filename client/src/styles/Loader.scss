@@ -1,3 +1,10 @@
+.lds-loader {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 200px;
+}
 .lds-roller {
   display: inline-block;
   position: relative;
@@ -15,7 +22,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #fff;
+  background: #0d4a91;
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {

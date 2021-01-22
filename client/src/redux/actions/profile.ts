@@ -40,6 +40,7 @@ export const getAllProfiles = () => async (dispatch: Dispatch<AppActions>) => {
 export const getProfileById = (id: string) => async (
   dispatch: Dispatch<AppActions>
 ) => {
+  dispatch({ type: "SET_LOADING", loading: true });
   try {
     const res = await axios.get(`/api/profile/user/${id}`);
     dispatch({ type: "GET_PROFILE", profile: res.data });
@@ -48,6 +49,8 @@ export const getProfileById = (id: string) => async (
       type: "GET_PROFILE_FAIL",
       error: { msg: e.response.data.msg, status: e.response.status },
     });
+  } finally {
+    dispatch({ type: "SET_LOADING", loading: false });
   }
 };
 
